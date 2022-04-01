@@ -1,0 +1,113 @@
+<html>
+<head>
+<title>
+3DCube
+</title>
+<style>
+body {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    45deg,
+    #b8b7b8 0%,
+    #d0d0d0 45%,
+    #ffffff 70%,
+    #ffffff 100%
+  );
+}
+
+.container {
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+}
+
+.cube {
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  transform: rotateX(-20deg) rotateY(-58deg) rotateZ(0deg);
+  position: relative;
+  cursor: pointer;
+}
+.cube:hover .side {
+  transition: 0.5s;
+  opacity: 0.6;
+  border: 1px black solid;
+  color:grey;
+}
+
+.side {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  position: absolute;
+  box-sizing: border-box;
+  color: transparent;
+}
+
+#front {
+  background-color: #d1d1d1;
+  transform-origin: center;
+  transform: translateZ(100px);
+  background: linear-gradient(180deg, #979595 0%, #313131 100%);
+}
+
+#back {
+  background-color: #676767;
+  transform-origin: center center;
+  transform: translateZ(-100px) rotateY(180deg);
+}
+
+#top {
+  background-color: #d1d1d1;
+  transform-origin: center top;
+  transform: rotateX(-270deg) translateY(-100px);
+  background: linear-gradient(45deg, #cacaca 0%, #d2d2d2 100%);
+}
+
+#bottom {
+  background-color: #676767;
+  transform-origin: center bottom;
+  transform: rotateX(270deg) translateY(100px);
+  box-shadow: -50px -50px 70px 3px rgba(41, 41, 41, 0.801);
+}
+
+#left {
+  background-color: #676767;
+  transform-origin: left center;
+  transform: rotateY(270deg) translateX(-100px);
+}
+
+#right {
+  background-color: #b8b8b8;
+  transform-origin: right center;
+  transform: rotateY(-270deg) translateX(100px);
+  background: linear-gradient(-45deg, #b4b4b4 0%, #c2c2c2 100%);
+  border: 0px 5px 0px 2px;
+  border-top: 2px rgba(255, 255, 255, 0.671) solid;
+  border-left: 2px rgba(255, 255, 255, 0.575) solid;
+}
+
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="cube">
+      <div class="side" id="front">Front</div>
+      <div class="side" id="back">Back</div>
+      <div class="side" id="top">Top</div>
+      <div class="side" id="bottom">Bottom</div>
+      <div class="side" id="left">Left</div>
+      <div class="side" id="right">Right</div>
+    </div>
+  </div>
+</body>
+
+</html>
